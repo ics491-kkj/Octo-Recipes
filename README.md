@@ -1,3 +1,6 @@
+# Octo-Recipes
+# Group: OctoGroup
+
 ## App Idea
 The existing landscape around cooking recipes revolve around publishing recipes. Users are able to provide an ingredient list and the steps to completing the dish, and others can comment and give the recipe a rating. The focus for our app will instead be about inverting that focus. Instead of publishing recipes and sharing them (outwards), the focus will instead be about the collection of recipes (inwards).
 
