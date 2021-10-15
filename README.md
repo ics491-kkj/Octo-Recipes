@@ -1,4 +1,4 @@
-##App Idea
+## App Idea
 The existing landscape around cooking recipes revolve around publishing recipes. Users are able to provide an ingredient list and the steps to completing the dish, and others can comment and give the recipe a rating. The focus for our app will instead be about inverting that focus. Instead of publishing recipes and sharing them (outwards), the focus will instead be about the collection of recipes (inwards).
 
 Cooking has grown in importance since the emergence of COVID-19, as people realized that they need to be able to provide sustenance to themselves, as well as the people close to them, without the constant reliance businesses. Cooking could also be a fun hobby that proves to be generally healthier than eating out or fast food. We hope to make the users' journey through cooking enjoyable and personalized.
@@ -7,7 +7,7 @@ Recipes that users collect will still be shareable, but we want them to ask them
 
 Recipes also come from all sorts of sources and mediums. Some come from physical media like cookbooks, while some come from the internet, such as cooking videos and recipes hosted on websites. Having a single place to keep track of all these recipes without having to bounce around would prove very convenient to the cooking experience. 
 
-##Team members
+## Team members
 1. Kason Shiroma
 2. Keanu Lagundimao
 3. Derek Nishimoto
