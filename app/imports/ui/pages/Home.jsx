@@ -1,8 +1,11 @@
 import React from 'react';
-import { Grid, Image, Loader } from 'semantic-ui-react';
+import { Container, Loader, Card } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { Stuffs } from '../../api/stuff/Stuff';
 
 /** A simple static component to render some text for the landing page. */
@@ -13,19 +16,66 @@ class Home extends React.Component {
   }
 
   renderPage() {
+    const settings = {
+      dots: true,
+      center: true,
+      infinite: true,
+      focusOnSelect: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+    };
     return (
-      <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
-
-        <Grid.Column width={4}>
-          <Image size='small' circular src="/images/meteor-logo.png"/>
-        </Grid.Column>
-
-        <Grid.Column width={8}>
-          <h1>Welcome to this template</h1>
-          <p>Now get to work and modify this app!</p>
-        </Grid.Column>
-
-      </Grid>
+      <div id='background'>
+        <Container>
+          <div>
+            <h2>You&apos;ve Tried</h2>
+            <Slider {...settings}>
+              <Card>
+                <h3>1</h3>
+              </Card>
+              <Card>
+                <h3>2</h3>
+              </Card>
+              <Card>
+                <h3>3</h3>
+              </Card>
+              <Card>
+                <h3>4</h3>
+              </Card>
+              <Card>
+                <h3>5</h3>
+              </Card>
+              <Card>
+                <h3>6</h3>
+              </Card>
+            </Slider>
+          </div>
+          <div>
+            <h2>You Haven&apos;t Tried</h2>
+            <Slider {...settings}>
+              <Card>
+                <h3>1</h3>
+              </Card>
+              <Card>
+                <h3>2</h3>
+              </Card>
+              <Card>
+                <h3>3</h3>
+              </Card>
+              <Card>
+                <h3>4</h3>
+              </Card>
+              <Card>
+                <h3>5</h3>
+              </Card>
+              <Card>
+                <h3>6</h3>
+              </Card>
+            </Slider>
+          </div>
+        </Container>
+      </div>
     );
   }
 }
