@@ -5,9 +5,11 @@
   ],
 
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    { "name": "Recipe name", "description": "description here", "ingredients": "ingredients here", 
+      "instructions": "instructions here", "image": "image link", "tags": ["easy", "Vegan"] },
+    { "name": "Rice Ball", "description": "A delicious ball of cooked rice", "ingredients": "Rice", 
+      "instructions": "1. Cook the rice in a rice cooker 2. Let the rice cool down 3. Roll rice into a ball", "image": "example.png", "tags": ["Easy", "Vegan"] },
+    { "name": "Spam Musubi", "description": "Rice ball + nori + spam", "ingredients": "1 cup rice, 1 piece of nori, 1 slice of spam", 
+      "instructions": "1. rice on bottom 2. spam on top 3. wrap with nori 4. eat", "image": "https://rasamalaysia.com/wp-content/uploads/2020/02/spam-musubi-thumb.jpg", "tags": ["Medium", "Vegan"] }
   ]
 }

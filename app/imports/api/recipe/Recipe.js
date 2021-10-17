@@ -3,24 +3,27 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The StuffsCollection. It encapsulates state and variable values for stuff.
+ * The RecipesCollection. It encapsulates state and variable values for recipe.
  */
-class StuffsCollection {
+
+const RecipeDataValues = { atags: ['Easy', 'Medium', 'Difficult','Healthy', 'Vegetarian', 'Vegan', 'Ketogenic', 'Gluten Free'] };
+
+class RecipesCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StuffsCollection';
+    this.name = 'RecipesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      quantity: Number,
+      description: String,
+      ingredients: String,
+      instructions: String,
+      image: String,
+      tags: { type: Array, optional: true },
+      'tags.$': { type: String, allowedValues: RecipeDataValues.atags },
       owner: String,
-      condition: {
-        type: String,
-        allowedValues: ['excellent', 'good', 'fair', 'poor'],
-        defaultValue: 'good',
-      },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -31,7 +34,9 @@ class StuffsCollection {
 }
 
 /**
- * The singleton instance of the StuffsCollection.
- * @type {StuffsCollection}
+ * The singleton instance of the RecipesCollection.
+ * @type {RecipesCollection}
  */
-export const Stuffs = new StuffsCollection();
+const Recipes = new RecipesCollection();
+export { Recipes, RecipeDataValues };
+
