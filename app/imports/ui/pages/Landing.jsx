@@ -1,9 +1,14 @@
 import React from 'react';
 import { Grid, Image } from 'semantic-ui-react';
+import { Meteor } from 'meteor/meteor';
+import { Redirect } from 'react-router';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
+    if (Meteor.userId() != null) {
+      return <Redirect to='/home'/>;
+    }
     return (
       <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
 
