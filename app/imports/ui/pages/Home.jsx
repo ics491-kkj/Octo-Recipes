@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
+import RecipeCard from '../components/RecipeCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Stuffs } from '../../api/stuff/Stuff';
@@ -34,34 +35,22 @@ class Home extends React.Component {
             <h2>You&apos;ve Tried</h2>
             <Slider {...settings}>
               <Segment basic>
-                <Card>
-                  <h3>1</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>2</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>3</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>4</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>5</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>6</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
             </Slider>
           </div>
