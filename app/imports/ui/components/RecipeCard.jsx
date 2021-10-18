@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Image, Button, Icon } from 'semantic-ui-react';
 // import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
@@ -8,16 +8,25 @@ import { withRouter, Link } from 'react-router-dom';
   Contains:
     1. The recipe's name
     2. Recipe's description
-    3. Recipe's tag
-    4. Link to the Recipe's page */
+    3. Recipe's tag    (TODO)
+      - could possible be in the meta content
+    4. Link to the Recipe's page
+*/
 class RecipeCard extends React.Component {
   render() {
     return (
       <Card>
-        <Card.Header>REcipe name</Card.Header>
-        <Card.Meta>Not tried before</Card.Meta>
-        <Card.Description>This is what the recipe is about</Card.Description>
-        <Card.Content extra>There could be a button here</Card.Content>
+        <Image src='/images/food-pic.png' wrapped ui={false}></Image>
+        <Card.Content textAlign='left'>
+          <Card.Header>Recipe name</Card.Header>
+          <Card.Meta>Not tried before</Card.Meta>
+          <Card.Description>This is what the recipe is about</Card.Description>
+        </Card.Content>
+        <Card.Content extra textAlign='right'>
+          <Button compact>
+            <Icon fitted name='arrow alternate circle right'></Icon>
+          </Button>
+        </Card.Content>
       </Card>
     );
   }
