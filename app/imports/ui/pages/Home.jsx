@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Loader, Card } from 'semantic-ui-react';
+import { Container, Loader, Card, Segment } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -17,61 +17,87 @@ class Home extends React.Component {
 
   renderPage() {
     const settings = {
+      className: 'center',
       dots: true,
-      center: true,
+      centerMode: true,
       infinite: true,
       focusOnSelect: true,
+      centerPadding: '60px',
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 3,
     };
     return (
       <div id='background'>
-        <Container>
+        <Container className='home'>
           <div>
             <h2>You&apos;ve Tried</h2>
             <Slider {...settings}>
-              <Card>
-                <h3>1</h3>
-              </Card>
-              <Card>
-                <h3>2</h3>
-              </Card>
-              <Card>
-                <h3>3</h3>
-              </Card>
-              <Card>
-                <h3>4</h3>
-              </Card>
-              <Card>
-                <h3>5</h3>
-              </Card>
-              <Card>
-                <h3>6</h3>
-              </Card>
+              <Segment basic>
+                <Card>
+                  <h3>1</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>2</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>3</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>4</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>5</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>6</h3>
+                </Card>
+              </Segment>
             </Slider>
           </div>
-          <div>
+          <div className='row'>
             <h2>You Haven&apos;t Tried</h2>
             <Slider {...settings}>
-              <Card>
-                <h3>1</h3>
-              </Card>
-              <Card>
-                <h3>2</h3>
-              </Card>
-              <Card>
-                <h3>3</h3>
-              </Card>
-              <Card>
-                <h3>4</h3>
-              </Card>
-              <Card>
-                <h3>5</h3>
-              </Card>
-              <Card>
-                <h3>6</h3>
-              </Card>
+              <Segment basic>
+                <Card>
+                  <h3>1</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>2</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>3</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>4</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>5</h3>
+                </Card>
+              </Segment>
+              <Segment basic>
+                <Card>
+                  <h3>6</h3>
+                </Card>
+              </Segment>
             </Slider>
           </div>
         </Container>
