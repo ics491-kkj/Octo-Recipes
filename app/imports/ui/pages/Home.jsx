@@ -4,7 +4,6 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
-import RecipeCard from '../components/RecipeCard';
 
 /** A simple static component to render some text for the landing page. */
 class Home extends React.Component {
