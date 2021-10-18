@@ -10,4 +10,4 @@ const RecipeFormSchema = new SimpleSchema({
   tags: { label: 'Tags', type: String, optional: true },
 });
 
-export {VaccineFormInfoSchema};
+export {RecipeFormSchema};
