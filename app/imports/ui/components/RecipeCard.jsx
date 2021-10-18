@@ -3,18 +3,21 @@ import { Card } from 'semantic-ui-react';
 // import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
-// Recipe Card:
-//  A React-Semantic card that represents recipe information as a card view
-//  Contains:
-//    1. The recipe's name
-//    2. Recipe's description
-//    3. Recipe's tag
-//    4. Link to the Recipe's page
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/* Recipe Card:
+  A React-Semantic card that represents recipe information as a card view
+  Contains:
+    1. The recipe's name
+    2. Recipe's description
+    3. Recipe's tag
+    4. Link to the Recipe's page */
 class StuffItem extends React.Component {
   render() {
     return (
       <Card>
+        <Card.Header>REcipe name</Card.Header>
+        <Card.Meta>Not tried before</Card.Meta>
+        <Card.Description>This is what the recipe is about</Card.Description>
+        <Card.Content extra>There could be a button here</Card.Content>
       </Card>
     );
   }
