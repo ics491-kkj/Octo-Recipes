@@ -1,0 +1,84 @@
+/*GLOBAL CSS SECTION*/
+/* ~~~~~~START~~~~~~~ */
+
+.background {
+  background-color: #FDF5E8;
+  background-size: cover;
+  background-position: center;
+}
+
+@font-face {
+  font-family: 'Courgette';
+  src: local('Courgette'), url(./fonts/Courgette-Regular.ttf) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-weight: bold;
+  src: local('Rubik'), url(./fonts/Rubik-VariableFont_wght.ttf) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+
+/* ~~~~~~END~~~~~~~ */
+/*GLOBAL CSS SECTION*/
+
+
+
+/*NAVBAR SECTION*/
+/* ~~~~~~START~~~~~~~ */
+
+.title-font {
+  font-family: 'Courgette' !important;
+}
+
+.menu-font {
+  font-family: 'Rubik' !important;
+  font-size: 18px !important;
+}
+
+.account-font {
+  font-family: 'Rubik' !important;
+  font-size: 14px !important;
+}
+
+/* ~~~~~~END~~~~~~~ */
+/*LANDING SECTION*/
+
+
+
+/*HOME SECTION*/
+/* ~~~~~~START~~~~~~~ */
+
+.Slider.segment {
+  background-color: #FDF5E8 !important;
+}
+
+.home {
+  padding: 20px 50px !important;
+}
+
+.row {
+  padding: 40px 0 50px 0;
+}
+
+.slick-arrow.slick-prev:before, .slick-arrow.slick-next:before {
+  color: black !important;
+}
+
+.center .slick-center .card {
+  color: #e67e22;
+  opacity: 1;
+  transform: scale(1.08);
+}
+/*.center .card {*/
+/*  opacity: 0.8;*/
+/*  transform: scale(0.90);*/
+/*  transition: all 300ms ease;*/
+/*}*/
+
+/* ~~~~~~END~~~~~~~ */
+/*LANDING SECTION*/
