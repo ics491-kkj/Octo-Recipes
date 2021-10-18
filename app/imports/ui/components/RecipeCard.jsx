@@ -10,7 +10,7 @@ import { withRouter, Link } from 'react-router-dom';
     2. Recipe's description
     3. Recipe's tag
     4. Link to the Recipe's page */
-class StuffItem extends React.Component {
+class RecipeCard extends React.Component {
   render() {
     return (
       <Card>
@@ -35,4 +35,4 @@ class StuffItem extends React.Component {
 // };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(StuffItem);
+export default withRouter(RecipeCard);

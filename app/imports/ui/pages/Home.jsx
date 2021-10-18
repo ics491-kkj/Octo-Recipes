@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
+import RecipeCard from '../components/RecipeCard';
 
 /** A simple static component to render some text for the landing page. */
 class Home extends React.Component {
@@ -19,6 +20,8 @@ class Home extends React.Component {
         <Grid.Column width={4}>
           <Image size='small' circular src="/images/meteor-logo.png"/>
         </Grid.Column>
+
+        <RecipeCard/>
 
         <Grid.Column width={8}>
           <h1>Welcome to this template</h1>
