@@ -29,14 +29,14 @@ class NavBar extends React.Component {
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
-            <Dropdown id="login-dropdown" text="Login" icon={'user'} simple item>
+            <Dropdown id="login-dropdown" text="Login" icon={'user'} simple item className='account-font'>
               <Dropdown.Menu>
                 <Dropdown.Item id="login-dropdown-sign-in" icon="user" text="Sign In" as={NavLink} exact to="/signin"/>
                 <Dropdown.Item id="login-dropdown-sign-up" icon="add user" text="Sign Up" as={NavLink} exact to="/signup"/>
               </Dropdown.Menu>
             </Dropdown>
           ) : (
-            <Dropdown id="navbar-current-user" text={this.props.currentUser} icon={'user'} simple item>
+            <Dropdown id="navbar-current-user" text={this.props.currentUser} icon={'user'} simple item className='account-font'>
               <Dropdown.Menu>
                 <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
               </Dropdown.Menu>
