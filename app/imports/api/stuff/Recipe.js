@@ -19,7 +19,8 @@ class RecipeCollection {
       ingredients: String,
       Servings: String,
       directions: String,
-      tags: String           // each tag in string is a keyword/keywords seperated by special character
+      tags: String,      // each tag in string is a keyword/keywords seperated by special character
+      owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
