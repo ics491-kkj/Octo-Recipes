@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Loader, Card, Segment } from 'semantic-ui-react';
+import { Container, Loader, Segment, Grid } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -29,7 +29,7 @@ class Home extends React.Component {
       slidesToScroll: 3,
     };
     return (
-      <div id='background'>
+      <Grid id='landing-page' className='background'>
         <Container className='home'>
           <div>
             <h2>You&apos;ve Tried</h2>
@@ -78,7 +78,7 @@ class Home extends React.Component {
             </Slider>
           </div>
         </Container>
-      </div>
+      </Grid>
     );
   }
 }
