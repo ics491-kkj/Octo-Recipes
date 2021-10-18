@@ -8,7 +8,7 @@ import SimpleSchema from 'simpl-schema';
 import { Recipe } from '../../api/recipe/Recipe';
 import { RecipeFormSchema } from '../forms/RecipeForm';
 
-const bridge = new SimpleSchema2Bridge(VaccineFormInfoSchema);
+const bridge = new SimpleSchema2Bridge(RecipeFormSchema);
 
 /** Renders the Page for adding a document. */
 class AddRecipe extends React.Component {
@@ -17,7 +17,7 @@ class AddRecipe extends React.Component {
   submit(data, formRef) {
     const { title, description, source, ingredients, servings, directions, tags } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ title, description, source, ingredients, servings, directions, tags, owner },
+    Recipe.collection.insert({ title, description, source, ingredients, servings, directions, tags, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -31,15 +31,21 @@ class AddRecipe extends React.Component {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   render() {
     let fRef = null;
+
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Add Stuff</Header>
+          <Header as="h2" textAlign="center">Add Recipe</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='name'/>
-              <NumField name='quantity' decimal={false}/>
-              <SelectField name='condition'/>
+              <TextField name='title'/>
+              <TextField name='description'/>
+              <TextField name='source'/>
+              <TextField name='ingredients'/>
+              <TextField name='servings'/>
+              <TextField name='directions'/>
+              <TextField name='tags' placeholder='easy;pastry;dessert'/>
+
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
