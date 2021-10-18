@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader } from 'semantic-ui-react';
+import { Container, Header, Card, Loader } from 'semantic-ui-react';
+import RecipeCard from '../components/RecipeCard';
 // import { withTracker } from 'meteor/react-meteor-data';
 // import PropTypes from 'prop-types';
 
@@ -16,7 +17,16 @@ class ListRecipes extends React.Component {
   render() {
     return (
       <Container>
-        <Header as='h1'>hello</Header>
+        <Header as='h1'>Your Recipes</Header>
+        <Card.Group itemsPerRow={4} textAlign='center'>
+          <RecipeCard/>
+          <RecipeCard/>
+          <RecipeCard/>
+          <RecipeCard/>
+          <RecipeCard/>
+          <RecipeCard/>
+          <RecipeCard/>
+        </Card.Group>
       </Container>
     );
   }
