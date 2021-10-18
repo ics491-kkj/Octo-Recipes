@@ -7,6 +7,14 @@
   background-position: center;
 }
 
+@font-face {
+  font-family: 'BlackberryJamPersonalUse';
+  src: local('BlackberryJamPersonalUse'), url(./fonts/BlackberryJamPersonalUse-rXOB.ttf) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+
 /* ~~~~~~END~~~~~~~ */
 /*GLOBAL CSS SECTION*/
 
@@ -15,8 +23,8 @@
 /*NAVBAR SECTION*/
 /* ~~~~~~START~~~~~~~ */
 
-#navbar {
-  padding-bottom: 10px;
+.title-font {
+  font-family: 'BlackberryJamPersonalUse' !important;
 }
 
 /* ~~~~~~END~~~~~~~ */
