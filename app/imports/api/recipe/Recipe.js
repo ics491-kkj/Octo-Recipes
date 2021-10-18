@@ -17,7 +17,7 @@ class RecipeCollection {
       description: String,
       source: String,
       ingredients: String,
-      Servings: String,
+      servings: String,
       directions: String,
       tags: String,      // each tag in string is a keyword/keywords seperated by special character
       owner: String,
