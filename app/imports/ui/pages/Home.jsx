@@ -58,34 +58,22 @@ class Home extends React.Component {
             <h2>You Haven&apos;t Tried</h2>
             <Slider {...settings}>
               <Segment basic>
-                <Card>
-                  <h3>1</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>2</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>3</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>4</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>5</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
               <Segment basic>
-                <Card>
-                  <h3>6</h3>
-                </Card>
+                <RecipeCard/>
               </Segment>
             </Slider>
           </div>
