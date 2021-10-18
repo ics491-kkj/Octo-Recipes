@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Image } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router';
 
