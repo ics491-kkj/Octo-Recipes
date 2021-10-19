@@ -19,7 +19,7 @@ class AddRecipe extends React.Component {
   submit(data, formRef) {
     const { title, description, source, ingredients, servings, instructions, tags } = data;
     const owner = Meteor.user().username;
-    Recipes.collection.insert({ title, description, source, ingredients, servings, directions, tags, owner },
+    Recipes.collection.insert({ title, description, source, ingredients, servings, instructions, tags, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
