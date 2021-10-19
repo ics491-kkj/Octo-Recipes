@@ -7,15 +7,16 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
+import ListRecipe from '../pages/ListRecipe';
+import ListRecipeAdmin from '../pages/ListRecipeAdmin';
+import AddRecipe from '../pages/AddRecipe';
+import EditRecipe from '../pages/EditRecipe';
 import Home from '../pages/Home';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ListRecipes from '../pages/ListRecipes';
-import AddRecipe from '../pages/AddRecipe';
-import EditRecipe from '../pages/EditRecipe';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -30,10 +31,11 @@ class App extends React.Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <ProtectedRoute path="/list" component={ListRecipes} />
+            <ProtectedRoute path="/list" component={ListRecipes}/>
+            <ProtectedRoute path="/view" component={ListRecipe}/>
             <ProtectedRoute path="/add" component={AddRecipe}/>
             <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
-            <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <AdminProtectedRoute path="/admin" component={ListRecipeAdmin}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>

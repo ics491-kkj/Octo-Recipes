@@ -6,7 +6,7 @@ class RecipeCollection {
 
   constructor() {
     // The name of this collection.
-    this.name = 'RecipeCollection';
+    this.name = 'RecipesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -29,7 +29,7 @@ class RecipeCollection {
 }
 
 /**
- * The singleton instance of the RecipeCollection.
- * @type {RecipeCollection}
+ * The singleton instance of the RecipesCollection.
+ * @type {RecipesCollection}
  */
 export const Recipes = new RecipeCollection();
