@@ -2,11 +2,12 @@ import SimpleSchema from 'simpl-schema';
 import { RecipeDataValues as DataValues } from '../../api/recipe/Recipe';
 
 const RecipeFormSchema = new SimpleSchema({
-  name: { label: 'Name', type: String },
+  title: { label: 'Title', type: String },
   description: { label: 'Description', type: String },
+  source: { label: 'Source', type: String },
   ingredients: { label: 'Ingredients', type: String },
+  servings: { label: 'Servings', type: String },
   instructions: { label: 'Instructions', type: String },
-  image: { label: 'Image', type: String },
   tags: { label: 'Tags', type: Array, optional: true },
   'tags.$': { type: String, allowedValues: DataValues.atags },
 });

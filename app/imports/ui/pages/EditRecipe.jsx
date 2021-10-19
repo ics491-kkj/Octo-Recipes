@@ -17,7 +17,7 @@ class EditRecipe extends React.Component {
   // On successful submit, insert the data.
   submit(data) {
     const { name, quantity, condition, _id } = data;
-    Recipes.collection.update(_id, { $set: { name, description, ingredients, instructions, image, tags } }, (error) => (error ?
+    Recipes.collection.update(_id, { $set: { title, description, source, ingredients, servings, instructions, tags } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -35,11 +35,12 @@ class EditRecipe extends React.Component {
           <Header as="h2" textAlign="center">Edit Recipe</Header>
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
-              <TextField name='name'/>
+              <TextField name='title'/>
               <TextField name='description'/>
+              <TextField name='source'/>
               <LongTextField name='ingredients'/>
+              <TextField name='servings'/>
               <LongTextField name='instructions'/>
-              <TextField name='image'/>
               <MultiSelectField name='tags' showInlineError={true} placeholder={'Select tags (optional)'}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>

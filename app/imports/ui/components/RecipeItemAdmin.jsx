@@ -7,11 +7,12 @@ class RecipeItemAdmin extends React.Component {
   render() {
     return (
       <Table.Row>
-        <Table.Cell>{this.props.recipe.name}</Table.Cell>
+        <Table.Cell>{this.props.recipe.title}</Table.Cell>
         <Table.Cell>{this.props.recipe.description}</Table.Cell>
+        <Table.Cell>{this.props.recipe.source}</Table.Cell>
         <Table.Cell>{this.props.recipe.ingredients}</Table.Cell>
+        <Table.Cell>{this.props.recipe.servings}</Table.Cell>
         <Table.Cell>{this.props.recipe.instructions}</Table.Cell>
-        <Table.Cell>{this.props.recipe.image}</Table.Cell>
         <Table.Cell>{this.props.recipe.tags}</Table.Cell>
         <Table.Cell>{this.props.recipe.owner}</Table.Cell>
       </Table.Row>
@@ -24,9 +25,10 @@ RecipeItemAdmin.propTypes = {
   recipe: PropTypes.shape({
     name: PropTypes.string,
     description: PropTypes.string,
+    source: PropTypes.string,
     ingredients: PropTypes.string,
+    servings: PropTypes.string,
     instructions: PropTypes.string,
-    image: PropTypes.string,
     tags: PropTypes.array,
     _id: PropTypes.string,
     owner: PropTypes.string,

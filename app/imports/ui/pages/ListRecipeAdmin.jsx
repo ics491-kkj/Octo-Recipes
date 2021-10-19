@@ -22,11 +22,12 @@ class ListRecipeAdmin extends React.Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>Source</Table.HeaderCell>
               <Table.HeaderCell>Ingredients</Table.HeaderCell>
+              <Table.HeaderCell>Servings</Table.HeaderCell>
               <Table.HeaderCell>Instructions</Table.HeaderCell>
-              <Table.HeaderCell>Image</Table.HeaderCell>
               <Table.HeaderCell>Tags</Table.HeaderCell>
               <Table.HeaderCell>Owner</Table.HeaderCell>
             </Table.Row>

@@ -16,11 +16,12 @@ class RecipesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      name: String,
+      title: String,
       description: String,
+      source: String,
       ingredients: String,
+      servings: String,
       instructions: String,
-      image: String,
       tags: { type: Array, optional: true },
       'tags.$': { type: String, allowedValues: RecipeDataValues.atags },
       owner: String,
