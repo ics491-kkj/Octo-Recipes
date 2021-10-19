@@ -2,13 +2,8 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
-/**
- * The RecipesCollection. It encapsulates state and variable values for recipe.
- */
+class RecipeCollection {
 
-const RecipeDataValues = { atags: ['Easy', 'Medium', 'Difficult','Healthy', 'Vegetarian', 'Vegan', 'Ketogenic', 'Gluten Free'] };
-
-class RecipesCollection {
   constructor() {
     // The name of this collection.
     this.name = 'RecipesCollection';
@@ -18,12 +13,11 @@ class RecipesCollection {
     this.schema = new SimpleSchema({
       title: String,
       description: String,
-      source: String,
+      source: { type: String, optional: true },
       ingredients: String,
       servings: String,
-      instructions: String,
-      tags: { type: Array, optional: true },
-      'tags.$': { type: String, allowedValues: RecipeDataValues.atags },
+      directions: String,
+      tags: { type: String, optional: true },      // each tag in string is a keyword/keywords seperated by special character
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
@@ -38,6 +32,4 @@ class RecipesCollection {
  * The singleton instance of the RecipesCollection.
  * @type {RecipesCollection}
  */
-const Recipes = new RecipesCollection();
-export { Recipes, RecipeDataValues };
-
+export const Recipes = new RecipeCollection();
