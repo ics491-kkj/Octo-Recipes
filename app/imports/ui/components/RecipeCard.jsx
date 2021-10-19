@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Image, Button, Icon } from 'semantic-ui-react';
 // import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import Recipe from '../../api/recipe/Recipe';
 
 /* Recipe Card:
   A React-Semantic card that represents recipe information as a card view
@@ -31,6 +32,15 @@ class RecipeCard extends React.Component {
     );
   }
 }
+
+/* Add link to edit info page if user is owner to recipe, has an issue
+
+         {(this.props.contact.owner === Meteor.user().username) ?
+            (<Card.Content extra>
+            <Link to={`/edit/${this.props.Recipe._id}`}>Edit</Link>
+          </Card.Content>) : ''} 
+
+*/
 
 // Keeping this for the time where we connect the front-end to the back-end
 // Require a document to be passed to this component.

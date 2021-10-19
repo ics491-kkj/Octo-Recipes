@@ -12,13 +12,11 @@ import ListRecipeAdmin from '../pages/ListRecipeAdmin';
 import AddRecipe from '../pages/AddRecipe';
 import EditRecipe from '../pages/EditRecipe';
 import Home from '../pages/Home';
-
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ListRecipes from '../pages/ListRecipes';
-
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -37,7 +35,11 @@ class App extends React.Component {
             <ProtectedRoute path="/view" component={ListRecipe}/>
             <ProtectedRoute path="/add" component={AddRecipe}/>
             <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
+<<<<<<< HEAD
             <AdminProtectedRoute path="/admin" component={ListRecipeAdmin}/>
+=======
+            <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+>>>>>>> d24ea4817f072b7b3064ad315f7f6c9d4f40709c
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
