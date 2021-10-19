@@ -16,8 +16,8 @@ class Landing extends React.Component {
             <Segment>
               <Header as='h3'>Welcome to OctoRecipes.</Header>
               <p>log in or register to get started.</p>
-              <Button color='vk'>Sign in</Button>
-              <Button color='green'>Register</Button>
+              <Button>Register</Button>
+              <Button color='green'>Sign in</Button>
             </Segment>
           </Grid.Column>
         </Grid>
