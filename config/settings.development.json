@@ -5,11 +5,9 @@
   ],
 
   "defaultData": [
-    { "name": "Recipe name", "description": "description here", "ingredients": "ingredients here", 
-      "instructions": "instructions here", "image": "image link", "tags": ["easy", "Vegan"] },
-    { "name": "Rice Ball", "description": "A delicious ball of cooked rice", "ingredients": "Rice", 
-      "instructions": "1. Cook the rice in a rice cooker 2. Let the rice cool down 3. Roll rice into a ball", "image": "example.png", "tags": ["Easy", "Vegan"] },
-    { "name": "Spam Musubi", "description": "Rice ball + nori + spam", "ingredients": "1 cup rice, 1 piece of nori, 1 slice of spam", 
-      "instructions": "1. rice on bottom 2. spam on top 3. wrap with nori 4. eat", "image": "https://rasamalaysia.com/wp-content/uploads/2020/02/spam-musubi-thumb.jpg", "tags": ["Medium", "Vegan"] }
+    { "title": "Recipe title", "description": "description of recipe", "source": "source link", "ingredients": "ingredients here", 
+      "servings": "servings per quantity", "instructions": "instructions here", "tags": ["Medium", "Vegan"], "owner": "john@foo.com" },
+    { "title": "Spam Musubi", "description": "riceball with spam on top", "source": "spammusubi.com", "ingredients": "rice, spam, nori", 
+      "servings": "2 musubi per serving", "instructions": "1. make rice, 2. roll rice into a brick shape, 3. add slice of cooked spam on top, 4. wrap with nori", "tags": ["Easy", "Healthy"], "owner": "john@foo.com" }
   ]
 }

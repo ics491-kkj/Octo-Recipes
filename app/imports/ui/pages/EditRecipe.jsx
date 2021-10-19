@@ -16,7 +16,7 @@ class EditRecipe extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { name, quantity, condition, _id } = data;
+    const { title, description, source, ingredients, servings, instructions, tags, _id } = data;
     Recipes.collection.update(_id, { $set: { title, description, source, ingredients, servings, instructions, tags } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
