@@ -7,7 +7,7 @@ import Slider from 'react-slick';
 import RecipeCard from '../components/RecipeCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Recipes } from '../../api/recipe/Recipe';
 
 /** A simple static component to render some text for the landing page. */
 class Home extends React.Component {
@@ -91,12 +91,12 @@ Home.propTypes = {
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
-  // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+  // Get access to Recipe documents.
+  const subscription = Meteor.subscribe(Recipes.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
-  // Get the Stuff documents
-  const status = Stuffs.collection.find({}).fetch();
+  // Get the Recipe documents
+  const status = Recipes.collection.find({}).fetch();
   return {
     status,
     ready,

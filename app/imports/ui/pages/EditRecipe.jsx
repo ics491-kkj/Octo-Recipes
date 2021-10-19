@@ -1,52 +1,50 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import swal from 'sweetalert';
+import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
+import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
-import { Recipe } from '../../api/recipe/Recipe';
-import { RecipeFormSchema } from '../forms/RecipeForm';
+import { Recipes } from '../../api/recipe/Recipe';
 
-const bridge = new SimpleSchema2Bridge(RecipeFormSchema);
+const bridge = new SimpleSchema2Bridge(Recipes.schema);
 
-/** Renders the Page for adding a document. */
+/** Renders the Page for editing a single document. */
 class EditRecipe extends React.Component {
 
-  // On submit, insert the data.
+  // On successful submit, insert the data.
   submit(data) {
-    const { title, description, source, ingredients, servings, directions, tags } = data;
-    const owner = Meteor.user().username;
-    Recipe.update(this.props.id, { $set: { title, description, source, ingredients, servings, directions, tags, owner  }},
-      (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Item added successfully', 'success');
-        }
-      });
+    const { title, description, source, ingredients, servings, instructions, tags, _id } = data;
+    Recipes.collection.update(_id, { $set: { title, description, source, ingredients, servings, instructions, tags } }, (error) => (error ?
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Item updated successfully', 'success')));
+  }
+
+  // If the subscription(s) have been received, render the page, otherwise show a loading icon.
+  render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
-  render() {
-    let fRef = null;
-
+  renderPage() {
     return (
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Edit Recipe</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <TextField name='title'/>
               <TextField name='description'/>
               <TextField name='source'/>
-              <TextField name='ingredients'/>
+              <LongTextField name='ingredients'/>
               <TextField name='servings'/>
-              <TextField name='directions'/>
-              <TextField name='tags' placeholder='easy;pastry;dessert'/>
-
+              <LongTextField name='instructions'/>
+              <MultiSelectField name='tags' showInlineError={true} placeholder={'Select tags (optional)'}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
+              <HiddenField name='owner' />
             </Segment>
           </AutoForm>
         </Grid.Column>
@@ -55,4 +53,25 @@ class EditRecipe extends React.Component {
   }
 }
 
-export default EditRecipe;
+// Require the presence of a Recipe document in the props object. Uniforms adds 'model' to the props, which we use.
+EditRecipe.propTypes = {
+  doc: PropTypes.object,
+  model: PropTypes.object,
+  ready: PropTypes.bool.isRequired,
+};
+
+// withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
+  // Get access to Recipe documents.
+  const subscription = Meteor.subscribe(Recipes.userPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready();
+  // Get the document
+  const doc = Recipes.collection.findOne(documentId);
+  return {
+    doc,
+    ready,
+  };
+})(EditRecipe);
