@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Recipe } from '../../api/recipe/Recipe';
+import { Recipes } from '../../api/recipe/Recipe';
 import { RecipeFormSchema } from '../forms/RecipeForm';
 
 const bridge = new SimpleSchema2Bridge(RecipeFormSchema);
@@ -17,7 +17,7 @@ class AddRecipe extends React.Component {
   submit(data, formRef) {
     const { title, description, source, ingredients, servings, directions, tags } = data;
     const owner = Meteor.user().username;
-    Recipe.collection.insert({ title, description, source, ingredients, servings, directions, tags, owner },
+    Recipes.collection.insert({ title, description, source, ingredients, servings, directions, tags, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
