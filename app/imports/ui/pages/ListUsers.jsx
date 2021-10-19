@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Card, Input, Icon, Menu, Loader } from 'semantic-ui-react';
 import RecipeCard from '../components/RecipeCard';
+import UserCard from '../components/UserCard';
 // import { withTracker } from 'meteor/react-meteor-data';
 // import PropTypes from 'prop-types';
 
@@ -33,13 +34,7 @@ class ListUsers extends React.Component {
           </Menu.Menu>
         </Menu>
         <Card.Group itemsPerRow={4} textAlign='center'>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
+          <UserCard/>
         </Card.Group>
       </Container>
     );
