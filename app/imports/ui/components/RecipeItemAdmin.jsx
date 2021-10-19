@@ -23,7 +23,7 @@ class RecipeItemAdmin extends React.Component {
 // Require a document to be passed to this component.
 RecipeItemAdmin.propTypes = {
   recipe: PropTypes.shape({
-    name: PropTypes.string,
+    title: PropTypes.string,
     description: PropTypes.string,
     source: PropTypes.string,
     ingredients: PropTypes.string,
