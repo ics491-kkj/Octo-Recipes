@@ -40,9 +40,15 @@ export default class Signin extends React.Component {
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
+
+    const containerStyle = {
+      marginTop: '30px',
+      marginBottom: '50px',
+    };
+
     // Otherwise return the Login form.
     return (
-      <Container id="signin-page">
+      <Container id="signin-page" style={containerStyle}>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">

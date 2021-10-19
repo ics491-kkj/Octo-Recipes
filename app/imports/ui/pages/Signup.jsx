@@ -38,8 +38,14 @@ class Signup extends React.Component {
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
+
+    const containerStyle = {
+      marginTop: '30px',
+      marginBottom: '50px',
+    };
+
     return (
-      <Container id="signup-page">
+      <Container id="signup-page" style={containerStyle}>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">

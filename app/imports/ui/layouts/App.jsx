@@ -22,25 +22,27 @@ import ListRecipes from '../pages/ListRecipes';
 class App extends React.Component {
   render() {
     return (
-      <Router>
-        <div>
-          <NavBar/>
-          <Switch>
-            <Route exact path="/" component={Landing}/>
-            <Route exact path="/home" component={Home}/>
-            <Route path="/signin" component={Signin}/>
-            <Route path="/signup" component={Signup}/>
-            <Route path="/signout" component={Signout}/>
-            <ProtectedRoute path="/list" component={ListRecipes}/>
-            <ProtectedRoute path="/view" component={ListRecipe}/>
-            <ProtectedRoute path="/add" component={AddRecipe}/>
-            <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
-            <AdminProtectedRoute path="/admin" component={ListRecipeAdmin}/>
-            <Route component={NotFound}/>
-          </Switch>
-          <Footer/>
-        </div>
-      </Router>
+      <div className='background'>
+        <Router>
+          <div>
+            <NavBar/>
+            <Switch>
+              <Route exact path="/" component={Landing}/>
+              <Route exact path="/home" component={Home}/>
+              <Route path="/signin" component={Signin}/>
+              <Route path="/signup" component={Signup}/>
+              <Route path="/signout" component={Signout}/>
+              <ProtectedRoute path="/list" component={ListRecipes}/>
+              <ProtectedRoute path="/view" component={ListRecipe}/>
+              <ProtectedRoute path="/add" component={AddRecipe}/>
+              <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
+              <AdminProtectedRoute path="/admin" component={ListRecipeAdmin}/>
+              <Route component={NotFound}/>
+            </Switch>
+            <Footer/>
+          </div>
+        </Router>
+      </div>
     );
   }
 }
