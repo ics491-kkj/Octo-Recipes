@@ -30,6 +30,7 @@ class ListRecipe extends React.Component {
               <Table.HeaderCell>Instructions</Table.HeaderCell>
               <Table.HeaderCell>Tags</Table.HeaderCell>
               <Table.HeaderCell>Edit</Table.HeaderCell>
+              <Table.HeaderCell>Remove</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
