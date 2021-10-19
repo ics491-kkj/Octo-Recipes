@@ -18,6 +18,9 @@ class RecipeItem extends React.Component {
         <Table.Cell>
           <Link to={`/edit/${this.props.recipe._id}`}>Edit</Link>
         </Table.Cell>
+        <Table.Cell>
+          <Link to={`/remove/${this.props.recipe._id}`}>Remove</Link>
+        </Table.Cell>
       </Table.Row>
     );
   }
