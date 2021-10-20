@@ -20,6 +20,12 @@ class RecipeCard extends React.Component {
       name: 'Spamusubi',
       triedBefore: false,
       description: 'A nice little snack with spam and rice',
+      tags: ['easy'],
+      source: 'my mom',
+      ingredients: '1. rice\n' +
+          '2. spam',
+      instructions: '1. do this\n2. then that',
+      owner: '123',
     };
   }
 
@@ -39,7 +45,7 @@ class RecipeCard extends React.Component {
           <Card.Description>{this.state.description}</Card.Description>
         </Card.Content>
         <Card.Content extra textAlign='right'>
-          <Button compact as={NavLink} exact to='/recipe'>
+          <Button compact as={NavLink} exact to='/recipe' props={this.state}>
             <Icon fitted name='arrow alternate circle right'></Icon>
           </Button>
         </Card.Content>
