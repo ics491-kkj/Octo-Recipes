@@ -26,15 +26,17 @@ class Home extends React.Component {
       centerPadding: '60px',
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
     };
     return (
       <Grid id='landing-page' className='background'>
         <Container className='home'>
           <div>
-            <h2>You&apos;ve Tried</h2>
+            <h2 style={{ paddingBottom: '20px' }}>You&apos;ve Tried</h2>
             <Slider {...settings}>
-              {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
+              {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe}/>)}
             </Slider>
           </div>
           <div className='row'>

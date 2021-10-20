@@ -16,6 +16,9 @@ class ListRecipes extends React.Component {
 
   // Render the page once subscriptions have been received.
   render() {
+    const cardStyle = {
+      padding: '10px 10px 10px 10px',
+    };
     return (
       <Container>
         <Menu secondary>
@@ -31,8 +34,8 @@ class ListRecipes extends React.Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Card.Group itemsPerRow={4} textAlign='center'>
-          {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
+        <Card.Group itemsPerRow={4} textAlign='center' style={{ width: '90em' }}>
+          {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} style={cardStyle}/>)}
         </Card.Group>
       </Container>
     );

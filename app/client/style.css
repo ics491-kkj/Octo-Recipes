@@ -22,6 +22,17 @@
                             'embedded-opentype', and 'svg' */
 }
 
+.card {
+  height: 500px !important;
+  width: 275px !important;
+  padding: 10px 10px 10px 10px;
+}
+
+img {
+  width: 275px !important;
+  height: 275px !important  ;
+}
+
 
 /* ~~~~~~END~~~~~~~ */
 /*GLOBAL CSS SECTION*/
@@ -53,10 +64,6 @@
 /*HOME SECTION*/
 /* ~~~~~~START~~~~~~~ */
 
-.Slider.segment {
-  background-color: #FDF5E8 !important;
-}
-
 .home {
   padding: 20px 50px !important;
 }
@@ -69,11 +76,14 @@
   color: black !important;
 }
 
-.center .slick-center .card {
-  color: #e67e22;
-  opacity: 1;
-  transform: scale(1.08);
-}
+/*.center .slick-center .card {*/
+/*  color: #e67e22;*/
+/*  opacity: 1;*/
+/*  transform: scale(1.08);*/
+/*  margin-Top: 30px;*/
+/*  margin-Bottom: 40px;*/
+/*}*/
+
 /*.center .card {*/
 /*  opacity: 0.8;*/
 /*  transform: scale(0.90);*/
