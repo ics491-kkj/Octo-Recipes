@@ -19,13 +19,16 @@ class RecipeCard extends React.Component {
       <Card>
         <Image src='/images/food-pic.png' wrapped ui={false}></Image>
         <Card.Content textAlign='left'>
-          <Card.Header>Recipe name</Card.Header>
+          <Card.Header>{this.props.recipe.title}</Card.Header>
           <Card.Meta>Not tried before</Card.Meta>
-          <Card.Description>This is what the recipe is about</Card.Description>
+          <Card.Description>{this.props.recipe.description}</Card.Description>
+        </Card.Content>
+        <Card.Content extra textAlign='left'>
+          {this.props.recipe.tags}
         </Card.Content>
         <Card.Content extra textAlign='right'>
           <Button compact>
-            <Icon fitted name='arrow alternate circle right'></Icon>
+             <Icon fitted name='arrow alternate circle right'></Icon>
           </Button>
         </Card.Content>
       </Card>
@@ -52,6 +55,19 @@ class RecipeCard extends React.Component {
 //     _id: PropTypes.string,
 //   }).isRequired,
 // };
+
+RecipeCard.propTypes = {
+  recipe: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    source: PropTypes.string,
+    ingredients: PropTypes.string,
+    servings: PropTypes.string,
+    instructions: PropTypes.string,
+    tags: PropTypes.array,
+    _id: PropTypes.string,
+  }).isRequired,
+};
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
 export default withRouter(RecipeCard);
