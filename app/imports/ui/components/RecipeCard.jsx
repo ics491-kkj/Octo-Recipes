@@ -53,7 +53,7 @@ class RecipeCard extends React.Component {
             <Button icon as={NavLink} exact to={`/remove/${this.props.recipe._id}`}>
               <Icon name='delete' color='red'/>
             </Button>
-            <Button icon as={NavLink} exact to='/recipe'>
+            <Button icon as={NavLink} exact to={`/recipe/${this.props.recipe._id}`}>
               <Icon name='arrow alternate circle right' />
             </Button>
           </Button.Group>

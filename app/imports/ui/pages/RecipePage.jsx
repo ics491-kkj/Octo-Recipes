@@ -1,9 +1,10 @@
 import React from 'react';
-import { Grid, Segment, Header, Button, Image, Menu, Icon } from 'semantic-ui-react';
+import { Grid, Segment, Header, Button, Image, Menu, Icon, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Recipes } from '../../api/recipe/Recipe';
 
 /** A simple static component that that displays a recipe's contents. */
 class RecipePage extends React.Component {
@@ -24,13 +25,18 @@ class RecipePage extends React.Component {
     };
   }
 
+  // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  renderPage() {
     const segmentStyle = {
       marginTop: '20px',
       marginBottom: '20px',
       padding: '20px 20px',
     };
-
+    console.log(this.props.recipe);
     return (
       <div>
         <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
@@ -39,7 +45,7 @@ class RecipePage extends React.Component {
               <Segment style={segmentStyle}>
                 <Menu secondary>
                   <Menu.Item>
-                    <Header as='h3'>{this.state.name}</Header>
+                    <Header as='h2'>{this.props.recipe.title}</Header>
                   </Menu.Item>
                   <Menu.Menu position='right'>
                     <Menu.Item>
@@ -47,32 +53,31 @@ class RecipePage extends React.Component {
                         <Button icon>
                           <Icon name='add' color='green'/>
                         </Button>
-                        <Button icon>
+                        <Button icon as={NavLink} exact to={`/edit/${this.props.recipe._id}`}>
                           <Icon name='edit'/>
                         </Button>
-                        <Button icon>
+                        <Button icon as={NavLink} exact to={`/remove/${this.props.recipe._id}`}>
                           <Icon name='delete' color='red'/>
                         </Button>
                       </Button.Group>
                     </Menu.Item>
                   </Menu.Menu>
                 </Menu>
-                <Image src='/images/food-pic.png' floated='right'></Image>
-                <p>{this.state.description}</p>
-                <p>Source: {this.state.source}</p>
+                <Image src={this.props.recipe.source} floated='right'></Image>
+                <p>{this.props.recipe.description}</p>
               </Segment>
             </Grid.Column>
             <Grid.Column>
               <Header as='h2'>Ingredients</Header>
               <Segment style={segmentStyle}>
                 <Header as='h4'>
-                  {this.state.ingredients}
+                  {this.props.recipe.ingredients}
                 </Header>
               </Segment>
               <Header as='h2'>Instructions</Header>
               <Segment style={segmentStyle}>
                 <Header as='h4'>
-                  {this.state.instructions}
+                  {this.props.recipe.instructions}
                 </Header>
               </Segment>
             </Grid.Column>
@@ -97,4 +102,24 @@ class RecipePage extends React.Component {
 //   }).isRequired,
 // };
 
-export default RecipePage;
+// Require the presence of a Recipe document in the props object. Uniforms adds 'model' to the props, which we use.
+RecipePage.propTypes = {
+  recipe: PropTypes.object,
+  ready: PropTypes.bool.isRequired,
+};
+
+// withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
+  // Get access to Recipe documents.
+  const subscription = Meteor.subscribe(Recipes.userPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready();
+  // Get the document
+  const recipe = Recipes.collection.findOne(documentId);
+  return {
+    recipe,
+    ready,
+  };
+})(RecipePage);
