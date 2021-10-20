@@ -15,10 +15,32 @@ class ListRecipes extends React.Component {
   // }
 
   // Render the page once subscriptions have been received.
+
+  state = {
+    searchTerm: '',
+    recipes: [],
+  };
+
+  componentDidMount() {
+    this.setState({
+      recipes: this.props.recipes,
+    });
+  }
+
+  onSearchHandler = e => {
+    this.setState({
+      searchTerm: e.target.value,
+    });
+  };
+
   render() {
     const cardStyle = {
       padding: '10px 10px 10px 10px',
     };
+    const toSearch = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const recipes = this.props.recipes
+      .filter(toSearch(this.state.searchTerm))
+      .map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} style={cardStyle}/>);
     return (
       <Container>
         <Menu secondary>
@@ -30,12 +52,15 @@ class ListRecipes extends React.Component {
               <Input
                 icon={<Icon name='search' inverted circular link />}
                 placeholder='Search...'
+                type='text'
+                value={this.state.searchTerm}
+                onChange={this.onSearchHandler.bind(this)}
               />
             </Menu.Item>
           </Menu.Menu>
         </Menu>
         <Card.Group itemsPerRow={4} textAlign='center' style={{ width: '90em' }}>
-          {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} style={cardStyle}/>)}
+          {recipes}
         </Card.Group>
       </Container>
     );
