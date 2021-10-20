@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, Link, NavLink } from 'react-router-dom';
 import Recipe from '../../api/recipe/Recipe';
 
 /** Recipe Card:
@@ -14,17 +14,32 @@ import Recipe from '../../api/recipe/Recipe';
     4. Link to the Recipe's page
 */
 class RecipeCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Spamusubi',
+      triedBefore: false,
+      description: 'A nice little snack with spam and rice',
+    };
+  }
+
   render() {
+    let triedBefore;
+    if (this.state.triedBefore) {
+      triedBefore = 'Has been tried before';
+    } else {
+      triedBefore = 'Hasn\'t been tried before';
+    }
     return (
       <Card>
         <Image src='/images/food-pic.png' wrapped ui={false}></Image>
         <Card.Content textAlign='left'>
-          <Card.Header>Recipe name</Card.Header>
-          <Card.Meta>Not tried before</Card.Meta>
-          <Card.Description>This is what the recipe is about</Card.Description>
+          <Card.Header>{this.state.name}</Card.Header>
+          <Card.Meta>{triedBefore}</Card.Meta>
+          <Card.Description>{this.state.description}</Card.Description>
         </Card.Content>
         <Card.Content extra textAlign='right'>
-          <Button compact>
+          <Button compact as={NavLink} exact to='/recipe'>
             <Icon fitted name='arrow alternate circle right'></Icon>
           </Button>
         </Card.Content>

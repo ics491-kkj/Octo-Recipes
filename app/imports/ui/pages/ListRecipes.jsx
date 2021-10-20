@@ -30,7 +30,7 @@ class ListRecipes extends React.Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Card.Group itemsPerRow={4} textAlign='center'>
+        <Card.Group itemsPerRow={3} textAlign='center'>
           <RecipeCard/>
           <RecipeCard/>
           <RecipeCard/>
