@@ -70,7 +70,7 @@ class RecipePage extends React.Component {
                     </Menu.Item>
                   </Menu.Menu>
                 </Menu>
-                <Image src={this.props.recipe.source} floated='right'></Image>
+                <Image src={this.props.recipe.source} centered></Image>
                 <p>{this.props.recipe.description}</p>
                 <Container style={containerStyle}>
                   {this.props.recipe.tags.map((tag) => <Label key={tag._id}>{tag}</Label>)}
