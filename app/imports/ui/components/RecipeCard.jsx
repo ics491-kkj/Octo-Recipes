@@ -16,6 +16,8 @@ import Recipe from '../../api/recipe/Recipe';
 class RecipeCard extends React.Component {
   constructor(props) {
     super(props);
+
+    // Temporary state variables until we pass props down to recipe cards
     this.state = {
       name: 'Spamusubi',
       triedBefore: false,
@@ -38,15 +40,15 @@ class RecipeCard extends React.Component {
     }
     return (
       <Card>
-        <Image src='/images/food-pic.png' wrapped ui={false}></Image>
+        <Image src='/images/food-pic.png' wrapped ui={false} />
         <Card.Content textAlign='left'>
           <Card.Header>{this.state.name}</Card.Header>
           <Card.Meta>{triedBefore}</Card.Meta>
           <Card.Description>{this.state.description}</Card.Description>
         </Card.Content>
         <Card.Content extra textAlign='right'>
-          <Button compact as={NavLink} exact to='/recipe' props={this.state}>
-            <Icon fitted name='arrow alternate circle right'></Icon>
+          <Button compact as={NavLink} exact to='/recipe'>
+            <Icon fitted name='arrow alternate circle right' />
           </Button>
         </Card.Content>
       </Card>
