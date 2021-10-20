@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Button, Image, Menu, Icon, Loader } from 'semantic-ui-react';
+import { Grid, Segment, Header, Button, Image, Menu, Icon, Loader, Label, Container } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -36,6 +36,13 @@ class RecipePage extends React.Component {
       marginBottom: '20px',
       padding: '20px 20px',
     };
+
+    const containerStyle = {
+      marginTop: '10px',
+      marginBottom: '6px',
+      padding: '10px, 10px',
+    };
+
     console.log(this.props.recipe);
     return (
       <div>
@@ -65,6 +72,9 @@ class RecipePage extends React.Component {
                 </Menu>
                 <Image src={this.props.recipe.source} floated='right'></Image>
                 <p>{this.props.recipe.description}</p>
+                <Container style={containerStyle}>
+                  {this.props.recipe.tags.map((tag) => <Label key={tag._id}>{tag}</Label>)}
+                </Container>
               </Segment>
             </Grid.Column>
             <Grid.Column>
