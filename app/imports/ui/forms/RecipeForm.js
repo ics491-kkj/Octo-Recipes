@@ -9,6 +9,7 @@ const RecipeFormSchema = new SimpleSchema({
   servings: { label: 'Servings', type: String },
   directions: { label: 'Directions', type: String },
   tags: { label: 'Tags', type: String, optional: true },
+  hasTried: { label: 'Has Tried', type: Boolean, optional: true },
 });
 
 export {RecipeFormSchema};

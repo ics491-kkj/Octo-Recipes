@@ -26,7 +26,7 @@ class RecipesCollection {
       tags: { type: Array, optional: true },
       'tags.$': { type: String, allowedValues: RecipeDataValues.atags },
       // temporary hasTried property to simplify demo
-      hasTried: Boolean,
+      hasTried: { type: Boolean, optional: true },
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

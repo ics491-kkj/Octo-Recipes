@@ -45,7 +45,7 @@ class AddRecipe extends React.Component {
               <TextField name='servings'/>
               <LongTextField name='instructions'/>
               <MultiSelectField name='tags' showInlineError={true} placeholder={'Select tags (optional)'}/>
-              <BoolField name='hasTried' appearance='checkbox'/>
+              <BoolField name='hasTried' appearance='toggle'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
