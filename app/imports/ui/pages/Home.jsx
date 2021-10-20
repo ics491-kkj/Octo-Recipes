@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Recipes } from '../../api/recipe/Recipe';
 
-/** A simple static component to render some text for the landing page. */
+/** A simple static component to render some text for the home page. */
 class Home extends React.Component {
   // If the subscription has been received, then render the page. Otherwise, let them know it's loading
   render() {
