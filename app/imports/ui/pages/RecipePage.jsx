@@ -45,7 +45,7 @@ class RecipePage extends React.Component {
                     <Menu.Item>
                       <Button.Group>
                         <Button icon>
-                          <Icon name='add' color='blue'/>
+                          <Icon name='add' color='green'/>
                         </Button>
                         <Button icon>
                           <Icon name='edit'/>
