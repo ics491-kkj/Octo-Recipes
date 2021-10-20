@@ -26,21 +26,9 @@ class RecipeCard extends React.Component {
           {this.props.recipe.tags}
         </Card.Content>
         <Card.Content extra textAlign='left'>
-          <Button compact>
-            {(this.props.recipe.owner === Meteor.user().username) ?
-              (<Card.Content extra>
-                <Link to={`/edit/${this.props.recipe._id}`}>Edit</Link>
-              </Card.Content>) : ''}
-          </Button>
-          <Button compact>
-            {(this.props.recipe.owner === Meteor.user().username) ?
-              (<Card.Content extra>
-                <Link to={`/remove/${this.props.recipe._id}`}>Remove</Link>
-              </Card.Content>) : ''}
-          </Button>
-          <Button compact>
-             <Icon fitted name='arrow alternate circle right'></Icon>
-          </Button>
+          <Button compact><Link to={`/edit/${this.props.recipe._id}`}>Edit</Link></Button>
+          <Button compact><Link to={`/remove/${this.props.recipe._id}`}>Remove</Link></Button>
+          <Button compact><Icon fitted name='arrow alternate circle right'></Icon></Button>
         </Card.Content>
       </Card>
     );
