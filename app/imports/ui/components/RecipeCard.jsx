@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link, NavLink } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 /** Recipe Card:
   A React-Semantic card that represents recipe information as a card view
@@ -48,11 +48,15 @@ class RecipeCard extends React.Component {
         <Card.Content extra textAlign='left'>
           {this.props.recipe.tags}
         </Card.Content>
-        <Card.Content extra textAlign='left'>
-          <Button compact><Link to={`/remove/${this.props.recipe._id}`}>Remove</Link></Button>
-          <Button compact as={NavLink} exact to='/recipe'>
-            <Icon fitted name='arrow alternate circle right' />
-          </Button>
+        <Card.Content extra textAlign='right'>
+          <Button.Group>
+            <Button icon as={NavLink} exact to={`/remove/${this.props.recipe._id}`}>
+              <Icon name='delete' color='red'/>
+            </Button>
+            <Button icon as={NavLink} exact to='/recipe'>
+              <Icon name='arrow alternate circle right' />
+            </Button>
+          </Button.Group>
         </Card.Content>
       </Card>
     );
