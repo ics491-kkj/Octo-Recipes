@@ -73,6 +73,7 @@ RecipeCard.propTypes = {
     servings: PropTypes.string,
     instructions: PropTypes.string,
     tags: PropTypes.array,
+    hasTried: PropTypes.bool,
     _id: PropTypes.string,
   }).isRequired,
 };

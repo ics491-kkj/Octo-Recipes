@@ -28,19 +28,22 @@ class Home extends React.Component {
       slidesToShow: 3,
       slidesToScroll: 3,
     };
+    const recipesTried = this.props.recipes.filter((recipe) => (recipe.hasTried));
+    const recipesNotTried = this.props.recipes.filter((recipe) => (!recipe.hasTried));
+    console.log(recipesTried, recipesNotTried);
     return (
       <Grid id='landing-page' className='background'>
         <Container className='home'>
           <div>
             <h2>You&apos;ve Tried</h2>
             <Slider {...settings}>
-              {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
+              {recipesTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
             </Slider>
           </div>
           <div className='row'>
             <h2>You Haven&apos;t Tried</h2>
             <Slider {...settings}>
-              {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
+              {recipesNotTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
             </Slider>
           </div>
         </Container>
