@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Image, Button, Icon, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, NavLink } from 'react-router-dom';
+import HasTriedButton from './HasTriedButton';
 
 /** Recipe Card:
   A React-Semantic card that represents recipe information as a card view
@@ -50,6 +51,7 @@ class RecipeCard extends React.Component {
           {this.props.recipe.tags.map((tag) => <Label key={tag._id}>{tag}</Label>)}
         </Card.Content>
         <Card.Content extra textAlign='right'>
+          {!this.props.recipe.hasTried && <HasTriedButton />}
           <Button.Group>
             <Button icon as={NavLink} exact to={`/remove/${this.props.recipe._id}`}>
               <Icon name='delete' color='red'/>
