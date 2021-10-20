@@ -4,6 +4,7 @@ const RecipeFormSchema = new SimpleSchema({
   title: { label: 'Title', type: String },
   description: { label: 'Description', type: String },
   source: { label: 'Source', type: String, optional: true },
+  embed: { label: 'Youtube Link', type: String, optional: true },
   ingredients: { label: 'Ingredients', type: String },
   servings: { label: 'Servings', type: String },
   directions: { label: 'Directions', type: String },

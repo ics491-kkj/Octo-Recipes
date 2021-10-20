@@ -16,8 +16,8 @@ class EditRecipe extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { title, description, source, ingredients, servings, instructions, tags, hasTried, _id } = data;
-    Recipes.collection.update(_id, { $set: { title, description, source, ingredients, servings, instructions, hasTried, tags } }, (error) => (error ?
+    const { title, description, source, embed, ingredients, servings, instructions, tags, hasTried, _id } = data;
+    Recipes.collection.update(_id, { $set: { title, description, source, embed, ingredients, servings, instructions, hasTried, tags } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -38,6 +38,7 @@ class EditRecipe extends React.Component {
               <TextField name='title'/>
               <TextField name='description'/>
               <TextField name='source'/>
+              <TextField name='embed'/>
               <LongTextField name='ingredients'/>
               <TextField name='servings'/>
               <LongTextField name='instructions'/>

@@ -19,6 +19,7 @@ class RecipesCollection {
       title: String,
       description: String,
       source: String,
+      embed: { type: String, optional: true },
       ingredients: String,
       servings: String,
       instructions: String,
