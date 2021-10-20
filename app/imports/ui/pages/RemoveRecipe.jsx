@@ -35,7 +35,9 @@ class RemoveRecipe extends React.Component {
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <Header as="h3" textAlign="center">Are you sure?</Header>
-              <SubmitField value='Submit'/>
+              <Segment textAlign="center">
+                <SubmitField value='Submit'/>
+              </Segment>
               <ErrorsField/>
               <HiddenField name='owner' />
             </Segment>

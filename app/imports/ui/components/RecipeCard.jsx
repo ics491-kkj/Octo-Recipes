@@ -17,7 +17,7 @@ class RecipeCard extends React.Component {
   render() {
     return (
       <Card>
-        <Image src='/images/food-pic.png' wrapped ui={false}></Image>
+        <Image src={this.props.recipe.source} wrapped ui={false}></Image>
         <Card.Content textAlign='left'>
           <Card.Header>{this.props.recipe.title}</Card.Header>
           <Card.Meta>Not tried before</Card.Meta>
