@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import swal from 'sweetalert';
-import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField, LongTextField, BoolField } from 'uniforms-semantic';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -16,8 +16,8 @@ class EditRecipe extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { title, description, source, ingredients, servings, instructions, tags, _id } = data;
-    Recipes.collection.update(_id, { $set: { title, description, source, ingredients, servings, instructions, tags } }, (error) => (error ?
+    const { title, description, source, ingredients, servings, instructions, tags, hasTried, _id } = data;
+    Recipes.collection.update(_id, { $set: { title, description, source, ingredients, servings, instructions, hasTried, tags } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -42,6 +42,7 @@ class EditRecipe extends React.Component {
               <TextField name='servings'/>
               <LongTextField name='instructions'/>
               <MultiSelectField name='tags' showInlineError={true} placeholder={'Select tags (optional)'}/>
+              <BoolField name='hasTried' />
               <SubmitField value='Submit'/>
               <ErrorsField/>
               <HiddenField name='owner' />
