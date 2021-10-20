@@ -32,7 +32,7 @@ class RecipeCard extends React.Component {
 
   render() {
     let triedBefore;
-    if (this.state.triedBefore) {
+    if (this.props.recipe.hasTried) {
       triedBefore = 'Has been tried before';
     } else {
       triedBefore = 'Hasn\'t been tried before';
@@ -73,6 +73,7 @@ RecipeCard.propTypes = {
     servings: PropTypes.string,
     instructions: PropTypes.string,
     tags: PropTypes.array,
+    hasTried: PropTypes.bool,
     _id: PropTypes.string,
   }).isRequired,
 };

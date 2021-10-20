@@ -1,11 +1,11 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
-import MultiSelectField from '../forms/controllers/MultiSelectField';
-import { RecipeFormSchema as formSchema } from '../forms/RecipeFormInfo';
+import { AutoForm, ErrorsField, SubmitField, TextField, LongTextField, BoolField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import { RecipeFormSchema as formSchema } from '../forms/RecipeFormInfo';
+import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { Recipes } from '../../api/recipe/Recipe';
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -15,9 +15,9 @@ class AddRecipe extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { title, description, source, ingredients, servings, instructions, tags } = data;
+    const { title, description, source, ingredients, servings, instructions, tags, hasTried } = data;
     const owner = Meteor.user().username;
-    Recipes.collection.insert({ title, description, source, ingredients, servings, instructions, tags, owner },
+    Recipes.collection.insert({ title, description, source, ingredients, servings, instructions, tags, hasTried, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -44,6 +44,7 @@ class AddRecipe extends React.Component {
               <TextField name='servings'/>
               <LongTextField name='instructions'/>
               <MultiSelectField name='tags' showInlineError={true} placeholder={'Select tags (optional)'}/>
+              <BoolField name='hasTried' appearance='checkbox'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
