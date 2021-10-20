@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Button, Image, Menu } from 'semantic-ui-react';
+import { Grid, Segment, Header, Button, Image, Menu, Icon } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import { Redirect } from 'react-router';
@@ -43,7 +43,17 @@ class RecipePage extends React.Component {
                   </Menu.Item>
                   <Menu.Menu position='right'>
                     <Menu.Item>
-                      <Button color='red'>Delete</Button>
+                      <Button.Group>
+                        <Button icon>
+                          <Icon name='add' color='blue'/>
+                        </Button>
+                        <Button icon>
+                          <Icon name='edit'/>
+                        </Button>
+                        <Button icon>
+                          <Icon name='delete' color='red'/>
+                        </Button>
+                      </Button.Group>
                     </Menu.Item>
                   </Menu.Menu>
                 </Menu>
