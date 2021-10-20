@@ -34,7 +34,7 @@ class ListRecipe extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.recipes.map((recipe) => <RecipeItem key={recipe._id} recipe={recipe} />)}
+            {this.props.recipes.map((recipe) => <RecipeItem key={recipe._id} recipe={recipe}/>)}
           </Table.Body>
         </Table>
       </Container>
