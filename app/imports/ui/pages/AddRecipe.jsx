@@ -6,9 +6,7 @@ import { RecipeFormSchema as formSchema } from '../forms/RecipeFormInfo';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
 import { Recipes } from '../../api/recipe/Recipe';
-import { RecipeFormSchema } from '../forms/RecipeForm';
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 

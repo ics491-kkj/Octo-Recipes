@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Loader, Segment, Grid } from 'semantic-ui-react';
+import { Container, Loader, Grid } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -34,47 +34,13 @@ class Home extends React.Component {
           <div>
             <h2>You&apos;ve Tried</h2>
             <Slider {...settings}>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
+              {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
             </Slider>
           </div>
           <div className='row'>
             <h2>You Haven&apos;t Tried</h2>
             <Slider {...settings}>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
-              <Segment basic>
-                <RecipeCard/>
-              </Segment>
+              {this.props.recipes.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
             </Slider>
           </div>
         </Container>
@@ -84,8 +50,9 @@ class Home extends React.Component {
 }
 
 // Require an array of Status documents in the props.
+// may need to add status
 Home.propTypes = {
-  status: PropTypes.array.isRequired,
+  recipes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -95,10 +62,11 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe(Recipes.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
-  // Get the Recipe documents
-  const status = Recipes.collection.find({}).fetch();
+  // Get the Recipe documents'
+  // may need to add status
+  const recipes = Recipes.collection.find({}).fetch();
   return {
-    status,
+    recipes,
     ready,
   };
 })(Home);
