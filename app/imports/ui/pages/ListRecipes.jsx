@@ -34,7 +34,8 @@ class ListRecipes extends React.Component {
   };
 
   render() {
-    const toSearch = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const toSearch = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase())
+        || item.tags.join().toLowerCase().includes(searchTerm.toLowerCase());
     const recipes = this.props.recipes
       .filter(toSearch(this.state.searchTerm))
       .map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} className='list-card'/>);
