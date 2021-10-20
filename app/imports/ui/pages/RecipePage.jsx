@@ -45,7 +45,7 @@ class RecipePage extends React.Component {
 
     console.log(this.props.recipe);
     return (
-      <div>
+      <div id='recipe-page'>
         <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
           <Grid.Row columns='equal'>
             <Grid.Column>
