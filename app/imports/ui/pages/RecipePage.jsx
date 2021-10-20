@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Button, Image, Menu, Icon, Loader, Label, Container } from 'semantic-ui-react';
+import { Grid, Segment, Header, Button, Image, Menu, Icon, Loader, Label, Container, Embed } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -57,9 +57,6 @@ class RecipePage extends React.Component {
                   <Menu.Menu position='right'>
                     <Menu.Item>
                       <Button.Group>
-                        <Button icon>
-                          <Icon name='add' color='green'/>
-                        </Button>
                         <Button icon as={NavLink} exact to={`/edit/${this.props.recipe._id}`}>
                           <Icon name='edit'/>
                         </Button>
@@ -76,6 +73,17 @@ class RecipePage extends React.Component {
                   {this.props.recipe.tags.map((tag) => <Label key={tag._id}>{tag}</Label>)}
                 </Container>
               </Segment>
+              {/* eslint-disable-next-line no-prototype-builtins */}
+              {this.props.recipe.hasOwnProperty('embed') &&
+              (<div>
+                <Header as='h2'>Video Embed</Header>
+                <Segment>
+                  <Embed
+                      id={this.props.recipe.embed.substring(this.props.recipe.embed.indexOf('=') + 1)}
+                      source='youtube'
+                  />
+                </Segment>
+              </div>)}
             </Grid.Column>
             <Grid.Column>
               <Header as='h2'>Ingredients</Header>

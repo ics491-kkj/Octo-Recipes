@@ -31,13 +31,14 @@ class RecipeCard extends React.Component {
   }
 
   render() {
-    let triedBefore, cardColor;
+    let triedBefore;
+    let cardColor;
     if (this.props.recipe.hasTried) {
       triedBefore = 'Has been tried before';
       cardColor = 'green';
     } else {
       triedBefore = 'Hasn\'t been tried before';
-      cardColor = 'yellow';
+      cardColor = 'red';
     }
     return (
       <Card color={cardColor}>
