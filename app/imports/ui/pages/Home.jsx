@@ -26,7 +26,7 @@ class Home extends React.Component {
       centerPadding: '60px',
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 1,
+      slidesToScroll: 3,
       autoplay: true,
       autoplaySpeed: 3000,
     };
@@ -37,7 +37,7 @@ class Home extends React.Component {
       <Grid id='landing-page' className='background'>
         <Container className='home'>
           <div>
-            <h2 style={{ paddingBottom: '20px' }}>You&apos;ve Tried</h2>
+            <h2 style={{ paddingBottom: '10px' }}>You&apos;ve Tried</h2>
             <Slider {...settings}>
               {recipesTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
             </Slider>

@@ -23,14 +23,14 @@
 }
 
 .card {
-  height: 500px !important;
+  height: 550px !important;
   width: 275px !important;
   padding: 10px 10px 10px 10px;
 }
 
 img {
   width: 275px !important;
-  height: 275px !important  ;
+  height: 250px !important  ;
 }
 
 
@@ -76,19 +76,49 @@ img {
   color: black !important;
 }
 
-/*.center .slick-center .card {*/
-/*  color: #e67e22;*/
-/*  opacity: 1;*/
-/*  transform: scale(1.08);*/
-/*  margin-Top: 30px;*/
-/*  margin-Bottom: 40px;*/
-/*}*/
+.center .slick-center .card {
+  color: #e67e22;
+  opacity: 1 !important;
+  transform: scale(1.08);
+  margin-Bottom: 40px;
+}
 
-/*.center .card {*/
-/*  opacity: 0.8;*/
-/*  transform: scale(0.90);*/
-/*  transition: all 300ms ease;*/
-/*}*/
+.slick-slide {
+  opacity: 1;
+  transform: scale(0.90);
+  transition: all 300ms ease;
+}
 
 /* ~~~~~~END~~~~~~~ */
 /*HOME SECTION*/
+
+
+
+/*LIST SECTION*/
+/* ~~~~~~START~~~~~~~ */
+
+.list-card {
+  padding: 10px 10px 10px 10px;
+}
+
+#list-page {
+  height: 90em;
+}
+
+/* ~~~~~~END~~~~~~~ */
+/*LIST SECTION*/
+
+
+/*ADD SECTION*/
+/* ~~~~~~START~~~~~~~ */
+
+#add-header {
+  padding-top: 20px;
+}
+
+#add-page {
+  height: 75em;
+}
+
+/* ~~~~~~END~~~~~~~ */
+/*ADD SECTION*/

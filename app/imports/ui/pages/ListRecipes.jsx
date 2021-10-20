@@ -34,15 +34,13 @@ class ListRecipes extends React.Component {
   };
 
   render() {
-    const cardStyle = {
-      padding: '10px 10px 10px 10px',
-    };
     const toSearch = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase());
     const recipes = this.props.recipes
       .filter(toSearch(this.state.searchTerm))
-      .map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} style={cardStyle}/>);
+      .map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} className='list-card'/>);
+
     return (
-      <Container>
+      <Container id='list-page'>
         <Menu secondary>
           <Menu.Item>
             <Header as='h1'>Your Recipes</Header>
