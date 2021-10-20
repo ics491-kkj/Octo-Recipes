@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Button, Icon } from 'semantic-ui-react';
+import { Card, Image, Button, Icon, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, NavLink } from 'react-router-dom';
 
@@ -46,7 +46,8 @@ class RecipeCard extends React.Component {
           <Card.Description>{this.props.recipe.description}</Card.Description>
         </Card.Content>
         <Card.Content extra textAlign='left'>
-          {this.props.recipe.tags}
+          {/* eslint-disable-next-line react/jsx-key */}
+          {this.props.recipe.tags.map((tag) => <Label key={tag._id}>{tag}</Label>)}
         </Card.Content>
         <Card.Content extra textAlign='right'>
           <Button.Group>
