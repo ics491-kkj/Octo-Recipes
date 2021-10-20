@@ -31,10 +31,10 @@ class App extends React.Component {
             <NavBar/>
             <Switch>
               <Route exact path="/" component={Landing}/>
-              <Route exact path="/home" component={Home}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/signout" component={Signout}/>
+              <ProtectedRoute exact path="/home" component={Home}/>
               <ProtectedRoute path="/list" component={ListRecipes}/>
               <ProtectedRoute path='/recipe/:_id' component={RecipePage}/>
               <ProtectedRoute path="/users" component={ListUsers}/>
