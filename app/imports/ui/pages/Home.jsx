@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Loader, Grid } from 'semantic-ui-react';
+import { Container, Loader, Grid, Card } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -32,21 +32,37 @@ class Home extends React.Component {
     };
     const recipesTried = this.props.recipes.filter((recipe) => (recipe.hasTried));
     const recipesNotTried = this.props.recipes.filter((recipe) => (!recipe.hasTried));
+    const triedCarousel = (recipesTried.length < 3) ? (
+      <Card.Group>
+        {recipesTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
+      </Card.Group>
+    ) :
+      (
+        <Slider {...settings}>
+          {recipesTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
+        </Slider>
+      );
+    const notTriedCarousel = (recipesNotTried.length < 3) ? (
+      <Card.Group>
+        {recipesNotTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
+      </Card.Group>
+    ) :
+      (
+        <Slider {...settings}>
+          {recipesNotTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
+        </Slider>
+      );
     console.log(recipesTried, recipesNotTried);
     return (
       <Grid id='landing-page' className='background'>
         <Container className='home'>
           <div>
             <h2 style={{ paddingBottom: '10px' }}>You&apos;ve Tried</h2>
-            <Slider {...settings}>
-              {recipesTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
-            </Slider>
+            {triedCarousel}
           </div>
           <div className='row'>
             <h2>You Haven&apos;t Tried</h2>
-            <Slider {...settings}>
-              {recipesNotTried.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)}
-            </Slider>
+            {notTriedCarousel}
           </div>
         </Container>
       </Grid>
