@@ -14,31 +14,31 @@ Recipes also come from all sorts of sources and mediums. Some come from physical
 
 ## Landing Page
 
-<img class="ui image" src="../images/landingpage.png">
+<img class="ui image" src="./images/landingpage.png">
 
 This is the landing page with a simple introduction to OctoRecipes.
 
 ## Home Page
 
-<img class="ui image" src="../images/homepage.png">
+<img class="ui image" src="./images/homepage.png">
 
 Here is the home page, with a sliding carousel displaying each recipe. 
 
 ## List Page
 
-<img class="ui image" src="../images/listpage.png">
+<img class="ui image" src="./images/listpage.png">
 
 This page contains an entire list of the recipes you added. On the top right, you can search recipes by name.
 
 ## Recipe Page
 
-<img class="ui image" src="../images/recipepage.png">
+<img class="ui image" src="./images/recipepage.png">
 
 The recipe page contains all details about a specific recipe, including instructions on making it, ingredients and a video source if the user has added one.
 
 ## Add Page
 
-<img class="ui image" src="../images/addpage.png">
+<img class="ui image" src="./images/addpage.png">
 
 This page is a form that allows you to add a new recipe to the database. 
 
